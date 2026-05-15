@@ -27,7 +27,7 @@ if ( file_exists( SNS_PATH . 'lib/plugin-update-checker/plugin-update-checker.ph
 	require SNS_PATH . 'lib/plugin-update-checker/plugin-update-checker.php';
 
 	$sns_update_checker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
-		'https://github.com/boileau-co/secondary-nav-search/',
+		'https://github.com/boileau-co/sec-nav-search/',
 		__FILE__,
 		'secondary-nav-search'
 	);
