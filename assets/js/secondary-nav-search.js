@@ -1,10 +1,9 @@
 /**
  * Secondary Nav Search
  *
- * Constructs the search form and wires up open/close behavior. If
- * SearchWP Live Ajax Search is active, the input also gets the class
- * + data attribute that plugin needs to attach its autocomplete; if
- * not, the form just submits to the native WordPress ?s= search.
+ * Constructs the search form and wires up open/close behavior.
+ * SearchWP Live Ajax Search is initialized on first open, by which
+ * point all scripts are guaranteed to have loaded.
  *
  * Receives values from PHP via window.snsData (see wp_localize_script
  * in secondary-nav-search.php).
@@ -20,17 +19,6 @@
 		}
 
 		var homeUrl = (window.snsData && window.snsData.homeUrl) || '/';
-
-		// Detect SearchWP Live Ajax Search. Conditionally adding its
-		// hooks (rather than always) keeps the input clean on sites
-		// that don't use SearchWP.
-		var hasLiveAjax = !!(
-			window.jQuery &&
-			typeof window.jQuery.fn.SearchWPLiveSearch === 'function'
-		);
-
-		var inputClasses = 'sns-input' + (hasLiveAjax ? ' searchwp-live-search-input' : '');
-		var inputDataAttr = hasLiveAjax ? 'data-swpengine="default" ' : '';
 
 		// -------------------------------------------------------------
 		// Build the form and append as a sibling of the <ul>, inside
@@ -48,11 +36,11 @@
 			'<input ' +
 				'type="search" ' +
 				'id="sns-input" ' +
-				'class="' + inputClasses + '" ' +
+				'class="sns-input searchwp-live-search-input" ' +
 				'name="s" ' +
 				'placeholder="Search the site..." ' +
 				'autocomplete="off" ' +
-				inputDataAttr +
+				'data-swpengine="default" ' +
 			'/>' +
 			'<button type="submit" aria-label="Submit search">' +
 				'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -73,13 +61,26 @@
 		var closeBtn = form.querySelector('.sns-close');
 
 		// -------------------------------------------------------------
+		// SearchWP Live Ajax init — runs on first open so all scripts
+		// are guaranteed loaded by the time this executes.
+		// -------------------------------------------------------------
+		var swpInitialized = false;
+		function maybeInitSearchWP() {
+			if (swpInitialized) { return; }
+			if (window.jQuery && typeof window.jQuery.fn.SearchWPLiveSearch === 'function') {
+				window.jQuery(input).SearchWPLiveSearch();
+				swpInitialized = true;
+			}
+		}
+
+		// -------------------------------------------------------------
 		// Open / close handlers
 		// -------------------------------------------------------------
 		function openSearch() {
 			form.classList.add('is-open');
 			menuWrap.classList.add('sns-active');
 			toggle.setAttribute('aria-expanded', 'true');
-			// Slight delay so the input is focusable after the transition starts
+			maybeInitSearchWP();
 			setTimeout(function () { input.focus(); }, 50);
 		}
 
@@ -105,22 +106,10 @@
 			closeSearch();
 		});
 
-		// ESC closes the search
 		document.addEventListener('keydown', function (e) {
 			if (e.key === 'Escape' && form.classList.contains('is-open')) {
 				closeSearch();
 			}
 		});
-
-		// -------------------------------------------------------------
-		// If SearchWP Live Ajax is present, the plugin usually attaches
-		// on DOM ready by scanning for inputs with the
-		// `searchwp-live-search-input` class. Because we appended the
-		// form dynamically, we trigger its init again here so it picks
-		// up the new input regardless of load order.
-		// -------------------------------------------------------------
-		if (hasLiveAjax) {
-			window.jQuery(input).SearchWPLiveSearch();
-		}
 	});
 })();
