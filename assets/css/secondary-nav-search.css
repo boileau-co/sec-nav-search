@@ -6,6 +6,11 @@
 	overflow: hidden;
 }
 
+/* Allow SearchWP dropdown to escape the menu bar when search is open. */
+#top-header #et-secondary-menu.sns-active {
+	overflow: visible;
+}
+
 /* Toggle button */
 #et-secondary-menu .sns-item {
 	list-style: none;

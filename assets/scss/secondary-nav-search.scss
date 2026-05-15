@@ -26,6 +26,11 @@ $sns-dropdown-shadow:    0 8px 24px rgba(0, 0, 0, 0.18);
 #top-header #et-secondary-menu {
 	position: relative;
 	overflow: hidden;
+
+	// Allow SearchWP dropdown to escape the menu bar when search is open.
+	&.sns-active {
+		overflow: visible;
+	}
 }
 
 // ---------------------------------------------------------------------
