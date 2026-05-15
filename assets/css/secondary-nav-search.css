@@ -1,0 +1,145 @@
+/* Secondary Nav Search — compiled from assets/scss/secondary-nav-search.scss */
+
+/* Secondary menu container becomes positioning context for the form. */
+#top-header #et-secondary-menu {
+	position: relative;
+	overflow: hidden;
+}
+
+/* Toggle button */
+#et-secondary-menu .sns-item {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#et-secondary-menu .sns-toggle {
+	background: transparent;
+	border: 0;
+	padding: 0 10px;
+	color: inherit;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	line-height: 1;
+	font: inherit;
+}
+
+#et-secondary-menu .sns-toggle:hover,
+#et-secondary-menu .sns-toggle:focus-visible {
+	opacity: 0.7;
+	outline: none;
+}
+
+/* Inline search form — hidden above bar, slides down on open */
+.sns-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	z-index: 10;
+	opacity: 0;
+	transform: translateY(-100%);
+	pointer-events: none;
+	transition:
+		opacity   250ms ease,
+		transform 300ms ease;
+	background: #111;
+}
+
+.sns-form.is-open {
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
+}
+
+.sns-form button {
+	background: transparent;
+	border: 0;
+	padding: 0 10px;
+	color: inherit;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	line-height: 1;
+}
+
+.sns-form button:hover,
+.sns-form button:focus-visible {
+	opacity: 0.7;
+	outline: none;
+}
+
+.sns-form .sns-close svg {
+	width: 18px;
+	height: 18px;
+}
+
+/* Search input */
+.sns-input {
+	flex: 1 1 auto;
+	min-width: 0;
+	border: 0;
+	background: transparent;
+	font: inherit;
+	font-size: 14px;
+	padding: 0 12px;
+	outline: none;
+	color: #fff;
+}
+
+.sns-input::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* Existing menu items slide away when search opens */
+#et-secondary-menu #et-secondary-nav > li:not(.sns-item),
+#et-secondary-menu .et-social-icons {
+	transition:
+		opacity   250ms ease,
+		transform 300ms ease;
+}
+
+#et-secondary-menu.sns-active #et-secondary-nav > li:not(.sns-item),
+#et-secondary-menu.sns-active .et-social-icons {
+	opacity: 0;
+	transform: translateY(100%);
+	pointer-events: none;
+}
+
+/* SearchWP Live Ajax Search results dropdown */
+.searchwp-live-search-results {
+	z-index: 99999 !important;
+	background: #fff !important;
+	color: #222 !important;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+	border-radius: 4px;
+	max-height: 70vh;
+	overflow-y: auto;
+}
+
+.searchwp-live-search-results a {
+	color: #222 !important;
+}
+
+.searchwp-live-search-results .searchwp-live-search-result--focused,
+.searchwp-live-search-results .searchwp-live-search-result:hover {
+	background: #f4f4f4 !important;
+}
+
+/* Visually hidden label for screen readers */
+.sns-sr-only {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
