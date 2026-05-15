@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Secondary Nav Search
  * Description: Adds a search icon to the Divi secondary navigation with an inline slide-down expand animation. SearchWP integration is optional.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Boileau & Co.
  * Text Domain: secondary-nav-search
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ---------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------
-define( 'SNS_VERSION', '1.0.0' );
+define( 'SNS_VERSION', '1.0.1' );
 define( 'SNS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SNS_URL',  plugin_dir_url( __FILE__ ) );
 
@@ -33,7 +33,6 @@ if ( file_exists( SNS_PATH . 'lib/plugin-update-checker/plugin-update-checker.ph
 	);
 
 	$sns_update_checker->setBranch( 'main' );
-	$sns_update_checker->getVcsApi()->enableReleaseAssets();
 
 	// Private repo? Uncomment and add a Personal Access Token.
 	// $sns_update_checker->setAuthentication( 'ghp_xxxxxxxxxxxxxxxxxxxxxx' );
