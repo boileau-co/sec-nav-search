@@ -136,6 +136,10 @@
 	background: #f4f4f4 !important;
 }
 
+#et-secondary-nav {
+	min-width: 300px;
+}
+
 /* Mobile: keep the secondary bar visible, search icon floats right */
 @media (max-width: 980px) {
 	#page-container {
@@ -158,10 +162,6 @@
 
 	.et_mobile_menu .sns-item {
 		display: none;
-	}
-
-	#et-secondary-nav {
-		min-width: 300px;
 	}
 
 	#et-secondary-nav li:not(.sns-item) {

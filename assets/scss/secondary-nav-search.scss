@@ -181,6 +181,9 @@ $sns-dropdown-shadow:    0 8px 24px rgba(0, 0, 0, 0.18);
 // Mobile: keep the secondary bar visible and move the search icon to
 // the right. Equivalent to Divi's tablet-landscape-down breakpoint.
 // ---------------------------------------------------------------------
+#et-secondary-nav {
+	min-width: 300px;
+}
 @media (max-width: 980px) {
 	#page-container {
 		position: relative;
@@ -206,12 +209,8 @@ $sns-dropdown-shadow:    0 8px 24px rgba(0, 0, 0, 0.18);
 	}
 
 	// Hide non-search items from the secondary bar — they live in the mobile dropdown.
-	#et-secondary-nav {
-		min-width: 300px;
-
-		li:not(.sns-item) {
-			display: none !important;
-		}
+	#et-secondary-nav li:not(.sns-item) {
+		display: none !important;
 	}
 }
 
