@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Secondary Nav Search
  * Description: Adds a search icon to the Divi secondary navigation with an inline slide-down expand animation. SearchWP integration is optional.
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: Boileau & Co.
  * Text Domain: secondary-nav-search
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ---------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------
-define( 'SNS_VERSION', '1.0.5' );
+define( 'SNS_VERSION', '1.0.6' );
 define( 'SNS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SNS_URL',  plugin_dir_url( __FILE__ ) );
 
@@ -67,15 +67,17 @@ function sns_output_form() {
 	$svg_search = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
 	$svg_close  = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
 	?>
-	<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" id="sns-form" class="sns-form" aria-hidden="true">
+	<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" id="sns-form" class="sns-form searchwp-form" aria-hidden="true">
 		<label for="sns-input" class="sns-sr-only">Search</label>
+		<input type="hidden" name="swp_form[form_id]" value="1">
 		<input
 			type="search"
 			id="sns-input"
-			class="sns-input searchwp-live-search-input"
+			class="sns-input swp-input--search swp-input"
 			name="s"
 			placeholder="Search the site..."
 			autocomplete="off"
+			data-swplive="true"
 			data-swpengine="default"
 		/>
 		<button type="submit" aria-label="Submit search"><?php echo $svg_search; ?></button>
