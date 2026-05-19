@@ -140,7 +140,11 @@
 	min-width: 300px;
 }
 
-/* Mobile: keep the secondary bar visible, search icon floats right */
+.sns-item {
+	float: right;
+}
+
+/* Mobile: keep the secondary bar visible */
 @media (max-width: 980px) {
 	#page-container {
 		position: relative;
@@ -154,10 +158,6 @@
 	#top-header #et-secondary-menu,
 	#top-header #et-secondary-nav {
 		display: block !important;
-	}
-
-	.sns-item {
-		float: right;
 	}
 
 	.et_mobile_menu .sns-item {

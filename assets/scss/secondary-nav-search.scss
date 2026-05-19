@@ -184,6 +184,10 @@ $sns-dropdown-shadow:    0 8px 24px rgba(0, 0, 0, 0.18);
 #et-secondary-nav {
 	min-width: 300px;
 }
+.sns-item {
+	float: right;
+}
+
 @media (max-width: 980px) {
 	#page-container {
 		position: relative;
@@ -197,10 +201,6 @@ $sns-dropdown-shadow:    0 8px 24px rgba(0, 0, 0, 0.18);
 	#top-header #et-secondary-menu,
 	#top-header #et-secondary-nav {
 		display: block !important;
-	}
-
-	.sns-item {
-		float: right;
 	}
 
 	// Hide the search icon from the mobile dropdown — it lives in the secondary bar.
