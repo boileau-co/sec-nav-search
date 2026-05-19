@@ -136,6 +136,39 @@
 	background: #f4f4f4 !important;
 }
 
+/* Mobile: keep the secondary bar visible, search icon floats right */
+@media (max-width: 980px) {
+	#page-container {
+		position: relative;
+	}
+
+	#top-header {
+		display: block !important;
+		top: 0 !important;
+	}
+
+	#top-header #et-secondary-menu,
+	#top-header #et-secondary-nav {
+		display: block !important;
+	}
+
+	.sns-item {
+		float: right;
+	}
+
+	.et_mobile_menu .sns-item {
+		display: none;
+	}
+
+	#et-secondary-nav {
+		min-width: 300px;
+	}
+
+	#et-secondary-nav li:not(.sns-item) {
+		display: none !important;
+	}
+}
+
 /* Visually hidden label for screen readers */
 .sns-sr-only {
 	position: absolute !important;
