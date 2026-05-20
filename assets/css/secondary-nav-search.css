@@ -2,13 +2,13 @@
  * Customise the variables below to match the host site.
  * ------------------------------------------------------------------ */
 :root {
-	--sns-bg:                #111;                      /* search bar background */
-	--sns-text:              #fff;                      /* input text */
-	--sns-placeholder:       rgba(255, 255, 255, 0.6);  /* placeholder text */
+	--sns-bg:                #fff;                      /* search bar background */
+	--sns-text:              #111;                      /* input text */
+	--sns-placeholder:       rgba(125, 125, 125, 0.5);  /* placeholder text */
 	--sns-fade-duration:     250ms;
 	--sns-slide-duration:    300ms;
 	--sns-dropdown-bg:       #fff;                      /* results dropdown background */
-	--sns-dropdown-text:     #222;                      /* results text */
+	--sns-dropdown-text:     #111;                      /* results text */
 	--sns-dropdown-hover-bg: #f4f4f4;                   /* results hover */
 	--sns-dropdown-shadow:   0 8px 24px rgba(0, 0, 0, 0.18);
 }
