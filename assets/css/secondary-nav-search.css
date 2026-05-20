@@ -169,8 +169,8 @@
 		display: block !important;
 		top: 0 !important;
 	}
-	/* override default top on the main menu */
-    #main-header {
+	/* override default top on the main menu — body prefix beats Divi's .et_secondary_nav_only_menu specificity */
+    body.et_secondary_nav_only_menu #main-header {
         top: 40px !important;
     }
 
