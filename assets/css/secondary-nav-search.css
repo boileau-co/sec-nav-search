@@ -50,6 +50,11 @@
 	outline: none;
 }
 
+#et-secondary-menu.sns-active .sns-toggle {
+	opacity: 0;
+	pointer-events: none;
+}
+
 /* Inline search form — hidden above bar, slides down on open */
 .sns-form {
 	position: absolute;
