@@ -1,4 +1,17 @@
-/* Secondary Nav Search — compiled from assets/scss/secondary-nav-search.scss */
+/* Secondary Nav Search
+ * Customise the variables below to match the host site.
+ * ------------------------------------------------------------------ */
+:root {
+	--sns-bg:                #111;                      /* search bar background */
+	--sns-text:              #fff;                      /* input text */
+	--sns-placeholder:       rgba(255, 255, 255, 0.6);  /* placeholder text */
+	--sns-fade-duration:     250ms;
+	--sns-slide-duration:    300ms;
+	--sns-dropdown-bg:       #fff;                      /* results dropdown background */
+	--sns-dropdown-text:     #222;                      /* results text */
+	--sns-dropdown-hover-bg: #f4f4f4;                   /* results hover */
+	--sns-dropdown-shadow:   0 8px 24px rgba(0, 0, 0, 0.18);
+}
 
 /* Secondary menu container becomes positioning context for the form. */
 #top-header #et-secondary-menu {
@@ -16,6 +29,7 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	display: block !important;
 }
 
 #et-secondary-menu .sns-toggle {
@@ -51,9 +65,9 @@
 	transform: translateY(-100%);
 	pointer-events: none;
 	transition:
-		opacity   250ms ease,
-		transform 300ms ease;
-	background: #111;
+		opacity   var(--sns-fade-duration)  ease,
+		transform var(--sns-slide-duration) ease;
+	background: var(--sns-bg);
 }
 
 .sns-form.is-open {
@@ -94,19 +108,19 @@
 	font-size: 14px;
 	padding: 0 12px;
 	outline: none;
-	color: #fff;
+	color: var(--sns-text);
 }
 
 .sns-input::placeholder {
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--sns-placeholder);
 }
 
 /* Existing menu items slide away when search opens */
 #et-secondary-menu #et-secondary-nav > li:not(.sns-item),
 #et-secondary-menu .et-social-icons {
 	transition:
-		opacity   250ms ease,
-		transform 300ms ease;
+		opacity   var(--sns-fade-duration)  ease,
+		transform var(--sns-slide-duration) ease;
 }
 
 #et-secondary-menu.sns-active #et-secondary-nav > li:not(.sns-item),
@@ -116,24 +130,24 @@
 	pointer-events: none;
 }
 
-/* SearchWP Live Ajax Search results dropdown */
+/* SearchWP Pro live search results dropdown */
 .searchwp-live-search-results {
 	z-index: 99999 !important;
-	background: #fff !important;
-	color: #222 !important;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+	background: var(--sns-dropdown-bg) !important;
+	color: var(--sns-dropdown-text) !important;
+	box-shadow: var(--sns-dropdown-shadow);
 	border-radius: 4px;
 	max-height: 70vh;
 	overflow-y: auto;
 }
 
 .searchwp-live-search-results a {
-	color: #222 !important;
+	color: var(--sns-dropdown-text) !important;
 }
 
 .searchwp-live-search-results .searchwp-live-search-result--focused,
 .searchwp-live-search-results .searchwp-live-search-result:hover {
-	background: #f4f4f4 !important;
+	background: var(--sns-dropdown-hover-bg) !important;
 }
 
 #et-secondary-nav {
