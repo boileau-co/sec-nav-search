@@ -98,20 +98,21 @@
 	height: 18px;
 }
 
-/* Search input */
-.sns-input {
+/* Search input — higher specificity to override SearchWP's own stylesheet */
+form.sns-form input.sns-input {
 	flex: 1 1 auto;
 	min-width: 0;
 	border: 0;
 	background: transparent;
+	background-image: none;    /* SearchWP injects a bg search icon; remove it */
 	font: inherit;
 	font-size: 14px;
 	padding: 0 12px;
 	outline: none;
-	color: var(--sns-text);
+	color: var(--sns-text);    /* SearchWP sets color: transparent; override it */
 }
 
-.sns-input::placeholder {
+form.sns-form input.sns-input::placeholder {
 	color: var(--sns-placeholder);
 }
 
