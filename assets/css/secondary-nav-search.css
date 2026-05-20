@@ -35,7 +35,7 @@
 #et-secondary-menu .sns-toggle {
 	background: transparent;
 	border: 0;
-	padding: 0 10px;
+	padding: 0;
 	color: inherit;
 	cursor: pointer;
 	display: inline-flex;
@@ -96,6 +96,10 @@
 .sns-form button:focus-visible {
 	opacity: 0.7;
 	outline: none;
+}
+
+.sns-form .sns-close {
+	padding-right: 0 !important;
 }
 
 .sns-form .sns-close svg {
