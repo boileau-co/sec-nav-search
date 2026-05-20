@@ -200,12 +200,12 @@
 
 /* SearchWP has an annoying ≤766px breakpoint that overrides things */
 @media (max-width: 766px) {
+	#sns-form {
+		top: 8px;
+	}
 	#sns-form input.sns-input { /*re-injects background icon — re-assert our override */
 		background-image: none !important;
 		padding: 0 12px !important;
-	}
-	#top-header .container { /*idk why the padding gets weird, remove bottom so it looks centered */
-		padding-bottom: 0 !important;
 	}
 }
 
