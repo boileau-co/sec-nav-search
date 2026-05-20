@@ -151,6 +151,10 @@
 	background: var(--sns-dropdown-hover-bg) !important;
 }
 
+.searchwp-live-search-results-showing {
+	z-index: 999999 !important;
+}
+
 #et-secondary-nav {
 	min-width: 300px;
 }
@@ -186,6 +190,14 @@
 
 	#et-secondary-nav li:not(.sns-item) {
 		display: none !important;
+	}
+}
+
+/* SearchWP re-injects background icon at ≤766px — re-assert our override */
+@media (max-width: 766px) {
+	#sns-form input.sns-input {
+		background-image: none !important;
+		padding: 0 12px !important;
 	}
 }
 
