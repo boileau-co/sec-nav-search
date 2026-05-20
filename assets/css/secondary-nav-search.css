@@ -170,7 +170,7 @@
 		top: 0 !important;
 	}
 	/* override default top on the main menu */
-    .et_secondary_nav_only_menu #main-header, .et_secondary_nav_only_menu #main-header {
+    #main-header {
         top: 40px !important;
     }
 
